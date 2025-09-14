@@ -39,10 +39,10 @@ export default function Page() {
       </motion.div>
 
       {/* Spacer to push content below Hey */}
-      <div className="h-[280px] md:h-[200px] lg:h-[150px]" />
+      <div className="h-[280px] md:h-[200px] lg:h-[150px] " />
 
       {/* Row: IDCard + Experience */}
-<div className="relative w-full max-w-[1055px] flex flex-col md:flex-row justify-between items-stretch gap-6 px-4 md:px-0 mt-[240px]">
+<div className="relative w-full max-w-[1055px] flex flex-col md:flex-row justify-between items-stretch gap-6 px-4 md:px-0 lg:mt-[240px] mt-[100px]">
   {/* ID Card */}
   <motion.div
     initial={{ opacity: 0, y: 50 }}
@@ -89,14 +89,14 @@ export default function Page() {
         transition={{ duration: 1, delay: 2 }}
         className="mt-10 px-4 md:px-0 w-full flex justify-center relative z-10"
       >
-        <Card width="100%" className="max-w-[1050px]" height="250px">
+        <Card width="100%" height="100%" className="max-w-[1050px] " >
           <div className="flex flex-col items-start px-4 md:px-6 py-4">
             <Card width="120px" height="50px">
               <div className="flex items-center justify-center w-full h-full">
                 <p className="text-white text-2xl">About</p>
               </div>
             </Card>
-            <p className="text-white pt-5 text-xl">
+            <p className="text-white pt-5 text-base sm:text-lg md:text-xl break-words">
               Passionate software engineer with hands-on experience in front-end and full-stack development, cloud computing, and DSA. Proven track record in hackathons and internships, building scalable, production-ready applications. Skilled in React, Next.js, Node.js, and AWS, with a strong focus on collaboration and problem-solving.
             </p>
           </div>
