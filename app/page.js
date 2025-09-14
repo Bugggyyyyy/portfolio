@@ -112,7 +112,7 @@ export default function Page() {
           transition={{ duration: 1, delay: 2.3 }}
           className="w-full lg:w-[500px]"
         >
-          <Card width="100%" height="500px">
+          <Card width="100%" height="600px">
             <div className="flex flex-col items-start px-4 py-4">
               <Card width="150px" height="50px">
                 <div className="flex items-center justify-center w-full h-full">
@@ -147,7 +147,7 @@ export default function Page() {
           transition={{ duration: 1, delay: 2.3 }}
           className="w-full lg:w-[500px]"
         >
-          <Card width="100%" height="500px">
+          <Card width="100%" height="600px">
             <div className="flex flex-col items-start px-4 py-4">
               <Card width="100px" height="50px">
                 <div className="flex items-center justify-center w-full h-full">
