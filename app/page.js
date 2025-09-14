@@ -1,103 +1,173 @@
+"use client";
 import Image from "next/image";
+import IDCard from "../components/IDCard";
+import Card from "../components/Card";
+import { motion } from "framer-motion";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="bg-black min-h-screen w-full flex flex-col items-center">
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 1,
+          x: "-50%", // center horizontally
+          y: "-50%", // center vertically
+          scale: 1,
+          position: "absolute",
+          top: "50%",
+          left: "50%",}}
+        animate={{ top: "0.5vh",   // floats a little from top
+        left: "2vw",  // floats a little from left
+        x: 0,
+        y: 0,
+        scale: 0.6,}}
+        transition={{ delay: 0.5, duration: 1, ease: "easeInOut" }}
+        className="absolute z-50"   // 👈 keeps Hey above cards
+  style={{ top: "50%", left: "50%" }} // set position outside animation
+      >
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src="/Hey,.svg"
+          alt="Hero"
+          width={709}
+          height={454}
+          className="rounded-xl shadow-lg "
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      </motion.div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* Row: IDCard + Small Card */}
+      <div className="pt-[45vh] flex flex-col items-center">
+      <div className="flex justify-center items-start gap-5 ">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2 }}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <IDCard />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2 }}
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <Card width="328px" height="320px">
+            <div className="flex flex-col items-start">
+              <Card width="140px" height="50px">
+                <div className="flex items-center justify-center w-full h-full">
+                  <p className="text-white text-2xl">Experience</p>
+                </div>
+              </Card>
+              <p className="text-white pt-[20px] text-xl">
+                Intern – Front End Web Development (Virtual) – Edunet Foundation –
+                AICTE — IBM SkillsBuild
+              </p>
+            </div>
+          </Card>
+        </motion.div>
+      </div>
+
+      {/* Big Centered Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 2 }}
+        className="mt-10"
+      >
+        <Card width="1000px" height="250px">
+          <div className="flex flex-col items-start">
+            <Card width="120px" height="50px">
+              <div className="flex items-center justify-center w-full h-full">
+                <p className="text-white text-2xl">About</p>
+              </div>
+            </Card>
+            <p className="text-white pt-[20px] text-xl">
+              Passionate software engineer with hands-on experience in front-end
+              and full-stack development, cloud computing, and DSA. Proven track
+              record in hackathons and internships, building scalable,
+              production-ready applications. Skilled in React, Next.js, Node.js,
+              and AWS, with a strong focus on collaboration and problem-solving.
+            </p>
+          </div>
+        </Card>
+      </motion.div>
+
+      {/* Another Row of Cards */}
+      <div className="flex flex-wrap gap-6 mt-10">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2.3 }}
+          
         >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <Card width="500px" height="500px">
+            <div className="flex flex-col items-start">
+              <Card width="150px" height="50px">
+                <div className="flex items-center justify-center w-full h-full">
+                  <p className="text-white text-2xl">Education</p>
+                </div>
+              </Card>
+              <ul className="list-disc list-inside text-white pt-[20px] text-xl space-y-3">
+      <li>
+        <span className="font-semibold">MLR Institute of Technology</span> — Hyderabad, Telangana  
+        B.Tech in Computer Science & Information Technology | Nov 2022 – May 2026  
+        CGPA: 7.69
+      </li>
+      <li>
+        <span className="font-semibold">Narayana Junior College</span> — Hyderabad, Telangana  
+        MPC (Maths, Physics, Chemistry) | May 2020 – May 2022  
+        Percentage: 90.6%
+      </li>
+      <li>
+        <span className="font-semibold">Paramita Heritage School</span> — Karimnagar, Telangana  
+        SSC | May 2020  
+        GPA: 10
+      </li>
+    </ul>
+              
+            </div>
+          </Card>
+        </motion.div>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2.3 }}
+          
+        >
+          <Card width="500px" height="500px">
+            <div className="flex flex-col items-start">
+              <Card width="100px" height="50px">
+                <div className="flex items-center justify-center w-full h-full">
+                  <p className="text-white text-2xl">Skills</p>
+                </div>
+              </Card>
+              <ul className="list-disc list-inside text-white pt-[20px] text-lg space-y-3">
+      <li>
+        <span className="font-semibold text-xl">Languages:</span> Python, Java, C, JavaScript, SQL, Solidity
+      </li>
+      <li>
+        <span className="font-semibold text-xl">Frontend:</span> ReactJS, Next.js, Redux, Flutter, HTML/CSS
+      </li>
+      <li>
+        <span className="font-semibold text-xl">Backend:</span> NodeJS, ExpressJS, REST APIs
+      </li>
+      <li>
+        <span className="font-semibold text-xl">Database:</span> MySQL, PostgreSQL, Firebase
+      </li>
+      <li>
+        <span className="font-semibold text-xl">Tools & Platforms:</span> Git, GitHub, AWS, Linux, Android Studio, VS Code, IntelliJ, Webflow, Figma
+      </li>
+      <li>
+        <span className="font-semibold text-xl">Concepts:</span> DSA, OOPS, OS, DBMS, Networking, Cloud Computing, Agile, CI/CD
+      </li>
+    </ul>
+              
+            </div>
+          </Card>
+        </motion.div>
+      </div>
+      
     </div>
+  </div>
   );
 }
