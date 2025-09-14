@@ -25,8 +25,9 @@ export default function Page() {
           y: 0,
           scale: 0.6,
         }}
-        transition={{ delay: 0.5, duration: 1, ease: "easeInOut" }}
-        className="absolute z-50"
+        transition={{ delay: 0.5, duration: 2, ease: "easeInOut" }}
+        className="absolute z-50 "
+
       >
         <Image
           src="/Hey,.svg"
@@ -38,46 +39,57 @@ export default function Page() {
       </motion.div>
 
       {/* Spacer to push content below Hey */}
-      <div className="h-[45vh] md:h-[30vh] lg:h-[20vh]" />
+      <div className="h-[280px] md:h-[200px] lg:h-[150px]" />
 
       {/* Row: IDCard + Experience */}
-      <div className="relative w-full max-w-[1200px] flex flex-col md:flex-row justify-center items-start gap-5 px-4 md:px-0">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2 }}
-        >
-          <IDCard />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2 }}
-        >
-          <Card width="328px" height="320px">
-            <div className="flex flex-col items-start">
-              <Card width="140px" height="50px">
-                <div className="flex items-center justify-center w-full h-full">
-                  <p className="text-white text-2xl">Experience</p>
-                </div>
-              </Card>
-              <p className="text-white pt-5 text-xl">
-                Intern – Front End Web Development (Virtual) – Edunet Foundation – AICTE — IBM SkillsBuild
-              </p>
-            </div>
-          </Card>
-        </motion.div>
+<div className="relative w-full max-w-[1055px] flex flex-col md:flex-row justify-between items-stretch gap-6 px-4 md:px-0 mt-[240px]">
+  {/* ID Card */}
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 2 }}
+    className="w-full md:w-[50%] flex-shrink-0"
+  >
+    <IDCard />
+  </motion.div>
+     
+     {/* Experience */}
+<motion.div
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 2 }}
+  className="w-full md:w-[50%] h-full"
+>
+  <Card height="345px"className="h-full">
+    <div className="flex flex-col items-start px-4  gap-4">
+      {/* Title inside smaller card */}
+      <div className="bg-white/2 border border-white/20 rounded-3xl px-4 py-2">
+        <p className="text-white text-xl font-semibold">Experience</p>
       </div>
+
+      {/* Experience text */}
+      <div className="text-white text-lg md:text-xl leading-relaxed">
+        <p>
+          <span className="font-semibold">Intern</span> — Front End Web
+          Development (Virtual) —{" "}
+          <span className="italic">Edunet Foundation</span> — AICTE — IBM
+          SkillsBuild
+        </p>
+      </div>
+    </div>
+  </Card>
+</motion.div>
+</div>
+
 
       {/* Big Centered Card */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 2 }}
-        className="mt-10 px-4 md:px-0 w-full flex justify-center"
+        className="mt-10 px-4 md:px-0 w-full flex justify-center relative z-10"
       >
-        <Card width="100%" className="max-w-[1000px]" height="250px">
+        <Card width="100%" className="max-w-[1050px]" height="250px">
           <div className="flex flex-col items-start px-4 md:px-6 py-4">
             <Card width="120px" height="50px">
               <div className="flex items-center justify-center w-full h-full">
@@ -92,7 +104,7 @@ export default function Page() {
       </motion.div>
 
       {/* Another Row of Cards: Education + Skills */}
-      <div className="flex flex-col lg:flex-row gap-6 mt-10 px-4 md:px-0 w-full max-w-[1200px] justify-center">
+      <div className="flex flex-col lg:flex-row gap-10 mt-10 px-4 md:px-0 w-full max-w-[1050px] justify-center">
         {/* Education */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
